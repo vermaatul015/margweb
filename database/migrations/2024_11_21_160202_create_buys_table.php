@@ -21,6 +21,7 @@ class CreateBuysTable extends Migration
             $table->string('name')->nullable();
             $table->string('cost_price')->nullable();
             $table->integer('quantity')->nullable();
+            $table->string('total_cost_price')->nullable();
             $table->string('paid')->nullable();
             $table->string('due')->nullable();
             $table->string('selling_price')->nullable();

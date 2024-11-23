@@ -2,6 +2,8 @@
 @section('title', 'Product')
 
 @section('content')
+<div class="container">
+
 <div class="table-header">
   <div>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#productModal" id="add_product">
@@ -37,9 +39,9 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">@sortablelink('supplier_name')</th>
-      <th scope="col">@sortablelink('name')</th>
-      <th scope="col">@sortablelink('price')</th>
+      <th scope="col">@sortablelink('supplier_name', 'Supplier Name')</th>
+      <th scope="col">@sortablelink('name' ,'Product Name')</th>
+      <th scope="col">Price (₹)</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -115,7 +117,7 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="price" class="col-sm-2 col-form-label">Price</label>
+            <label for="price" class="col-sm-2 col-form-label">Price(₹)</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" id="price" name="price" >
             </div>
@@ -131,5 +133,7 @@
       </div>
     </div>
   </div>
+</div>
+
 </div>
 @stop

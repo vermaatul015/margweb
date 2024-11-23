@@ -31,4 +31,10 @@ Route::group(['namespace' => 'front'],function(){
         Route::post('edit-product', [ 'as' => 'edit-product', 'uses' => 'ProductController@editProduct']);
         Route::post('delete-product', [ 'as' => 'delete-product', 'uses' => 'ProductController@deleteProduct']);
     });
+    Route::group(['prefix'=>'buy'],function(){
+        Route::any('/',['as' => 'buy_list','uses' => 'BuyController@list']);
+        Route::post('add-buy', [ 'as' => 'add-buy', 'uses' => 'BuyController@addBuy']);
+        Route::post('edit-buy', [ 'as' => 'edit-buy', 'uses' => 'BuyController@editBuy']);
+        Route::post('delete-buy', [ 'as' => 'delete-buy', 'uses' => 'BuyController@deleteBuy']);
+    });
 });

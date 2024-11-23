@@ -13,7 +13,7 @@
         <a class="nav-link" href="{{route('product_list')}}">Product</a>
       </li>
       <li class="nav-item {{$data['index'] == 'Buy' ? 'active' : ''}}">
-        <a class="nav-link" href="#">Buy</a>
+        <a class="nav-link" href="{{route('buy_list')}}">Buy</a>
       </li>
       <li class="nav-item {{$data['index'] == 'Sell' ? 'active' : ''}}">
         <a class="nav-link" href="#">Sell</a>

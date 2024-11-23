@@ -23,7 +23,7 @@ class SupplierController extends Controller
                 ->orWhere('gst','like', '%'.$searchKey.'%');
             });
         }
-        $data['supplier'] = $data['supplier']->sortable()->paginate($num_results_on_page);
+        $data['supplier'] = $data['supplier']->sortable(['name' => 'asc'])->paginate($num_results_on_page);
         return view('front/supplier')->with('data',$data);
     }
 

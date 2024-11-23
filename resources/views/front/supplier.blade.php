@@ -2,6 +2,8 @@
 @section('title', 'Supplier')
 
 @section('content')
+<div class="container">
+  
 <div class="table-header">
   <div>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#supplierModal" id="add_supplier">
@@ -108,5 +110,7 @@
       </div>
     </div>
   </div>
+</div>
+
 </div>
 @stop

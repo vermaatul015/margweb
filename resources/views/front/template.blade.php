@@ -2,10 +2,10 @@
 @include('front.includes.sidebar')
  
   <!-- Full Width Column -->
-  <div class="container">
+  
     @yield('content')
     <!-- /.container -->
-  </div>
+ 
   <!-- /.content-wrapper -->
   @include('front.includes.footer') 
 

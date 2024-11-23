@@ -25,7 +25,7 @@ class ProductController extends Controller
                 ->orWhere('price','like', '%'.$searchKey.'%');
             });
         }
-        $data['product'] = $data['product']->sortable()->paginate($num_results_on_page);
+        $data['product'] = $data['product']->sortable(['name' => 'asc'])->paginate($num_results_on_page);
         $data['supplier'] = Supplier::select('id','name')->get();
         return view('front/product')->with('data',$data);
     }
