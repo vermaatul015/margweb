@@ -1,0 +1,9 @@
+.table-header{
+    display: flex;
+    justify-content: space-between;
+    margin: 21px;
+}
+
+.pull-right{
+    float: right;
+}

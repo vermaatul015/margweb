@@ -20,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace' => 'front'],function(){
     Route::group(['prefix'=>''],function(){
-        Route::any('/',['as' => 'supplier_list','uses' => 'SupplierController@index']);
+        Route::any('/',['as' => 'supplier_list','uses' => 'SupplierController@list']);
+        Route::post('add-supplier', [ 'as' => 'add-supplier', 'uses' => 'SupplierController@addSupplier']);
+        Route::post('edit-supplier', [ 'as' => 'edit-supplier', 'uses' => 'SupplierController@editSupplier']);
+        Route::post('delete-supplier', [ 'as' => 'delete-supplier', 'uses' => 'SupplierController@deleteSupplier']);
     });
 });

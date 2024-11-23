@@ -2,7 +2,7 @@
 @include('front.includes.sidebar')
  
   <!-- Full Width Column -->
-  <div class="content-wrapper">
+  <div class="container">
     @yield('content')
     <!-- /.container -->
   </div>
