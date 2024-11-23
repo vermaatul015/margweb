@@ -16,7 +16,7 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->integer('id', true);
             $table->integer('supplier_id')->nullable();
-            $table->string('supplier_name')->nullable();
+            $table->string('supplier_name')->nullable()->comment('ReadOnly, Incase supplier is deleted from parent.');;
             $table->string('name')->nullable();
             $table->string('price')->nullable();
             // $table->integer('stock')->default(0)->nullable();

@@ -25,4 +25,10 @@ Route::group(['namespace' => 'front'],function(){
         Route::post('edit-supplier', [ 'as' => 'edit-supplier', 'uses' => 'SupplierController@editSupplier']);
         Route::post('delete-supplier', [ 'as' => 'delete-supplier', 'uses' => 'SupplierController@deleteSupplier']);
     });
+    Route::group(['prefix'=>'product'],function(){
+        Route::any('/',['as' => 'product_list','uses' => 'ProductController@list']);
+        Route::post('add-product', [ 'as' => 'add-product', 'uses' => 'ProductController@addProduct']);
+        Route::post('edit-product', [ 'as' => 'edit-product', 'uses' => 'ProductController@editProduct']);
+        Route::post('delete-product', [ 'as' => 'delete-product', 'uses' => 'ProductController@deleteProduct']);
+    });
 });

@@ -6,16 +6,16 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item {{$data['index'] == 'Supplier' ? 'active' : ''}}">
         <a class="nav-link" href="{{route('supplier_list')}}">Supplier <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Product</a>
+      <li class="nav-item {{$data['index'] == 'Product' ? 'active' : ''}}">
+        <a class="nav-link" href="{{route('product_list')}}">Product</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item {{$data['index'] == 'Buy' ? 'active' : ''}}">
         <a class="nav-link" href="#">Buy</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item {{$data['index'] == 'Sell' ? 'active' : ''}}">
         <a class="nav-link" href="#">Sell</a>
       </li>
       

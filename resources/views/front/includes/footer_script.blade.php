@@ -14,7 +14,11 @@
       var add_supplier = "{{route('add-supplier')}}"
       var edit_supplier = "{{route('edit-supplier')}}"
       var delete_supplier = "{{route('delete-supplier')}}"
+      var add_product = "{{route('add-product')}}"
+      var edit_product = "{{route('edit-product')}}"
+      var delete_product = "{{route('delete-product')}}"
     </script>
-    <script src="{{ asset('front/js/supplier.js') }}?v={{time()}}"></script>
+    @if($data['index'] == 'Supplier') <script src="{{ asset('front/js/supplier.js') }}?v={{time()}}"></script> @endif
+    @if($data['index'] == 'Product') <script src="{{ asset('front/js/product.js') }}?v={{time()}}"></script> @endif
   </body>
 </html>

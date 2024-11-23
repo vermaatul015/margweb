@@ -9,7 +9,7 @@ class Supplier extends Model
 {
     use Sortable;
     protected $fillable = [ 'name', 'gst' ];
-	public $sortable = ['name', 'gst',];
+	public $sortable = ['name', 'gst'];
 
     public function products()
     {

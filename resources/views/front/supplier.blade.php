@@ -1,5 +1,5 @@
 @extends('front/template')
-@section('title', 'Product')
+@section('title', 'Supplier')
 
 @section('content')
 <div class="table-header">
@@ -69,8 +69,8 @@
 </table>
 <div class="pull-right">
   @if(!empty($data['supplier']))
-{{ $data['supplier']->appends(\Request::except('page'))->render() }}
-@endif
+  {{ $data['supplier']->appends(\Request::except('page'))->render() }}
+  @endif
 </div>
 <!-- Modal -->
 <div class="modal fade" id="supplierModal" tabindex="-1" role="dialog" aria-labelledby="supplierModalLabel" aria-hidden="true">
