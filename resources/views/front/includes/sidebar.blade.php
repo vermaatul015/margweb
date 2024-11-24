@@ -19,7 +19,7 @@
         <a class="nav-link" href="{{route('stock_list')}}">My Stocks</a>
       </li>
       <li class="nav-item {{$data['index'] == 'Sell' ? 'active' : ''}}">
-        <a class="nav-link" href="#">Sell</a>
+        <a class="nav-link" href="{{route('sell_list')}}">Sell</a>
       </li>
       
     </ul>

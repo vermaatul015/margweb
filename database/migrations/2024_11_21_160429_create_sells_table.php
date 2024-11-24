@@ -17,10 +17,11 @@ class CreateSellsTable extends Migration
             $table->integer('id', true);
             $table->integer('supplier_id')->nullable();
             $table->string('supplier_name')->nullable();
-            $table->integer('buy_id')->nullable();
+            $table->integer('stock_id')->nullable();
             $table->string('name')->nullable();
             $table->string('selling_price')->nullable();
             $table->integer('quantity')->nullable();
+            $table->string('total_selling_price')->nullable();
             $table->string('amount_received')->nullable();
             $table->string('due')->nullable();
             $table->dateTime('created_at')->nullable();

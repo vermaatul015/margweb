@@ -42,4 +42,10 @@ Route::group(['namespace' => 'front'],function(){
         Route::post('edit-stock', [ 'as' => 'edit-stock', 'uses' => 'StockController@editStock']);
         Route::post('delete-stock', [ 'as' => 'delete-stock', 'uses' => 'StockController@deleteStock']);
     });
+    Route::group(['prefix'=>'sell'],function(){
+        Route::any('/',['as' => 'sell_list','uses' => 'SellController@list']);
+        Route::post('add-sell', [ 'as' => 'add-sell', 'uses' => 'SellController@addSell']);
+        Route::post('edit-sell', [ 'as' => 'edit-sell', 'uses' => 'SellController@editSell']);
+        Route::post('delete-sell', [ 'as' => 'delete-sell', 'uses' => 'SellController@deleteSell']);
+    });
 });

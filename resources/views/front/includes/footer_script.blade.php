@@ -22,10 +22,14 @@
       var delete_buy = "{{route('delete-buy')}}"
       var edit_stock = "{{route('edit-stock')}}"
       var delete_stock = "{{route('delete-stock')}}"
+      var add_sell = "{{route('add-sell')}}"
+      var edit_sell = "{{route('edit-sell')}}"
+      var delete_sell = "{{route('delete-sell')}}"
     </script>
     @if($data['index'] == 'Supplier') <script src="{{ asset('front/js/supplier.js') }}?v={{time()}}"></script> @endif
     @if($data['index'] == 'Product') <script src="{{ asset('front/js/product.js') }}?v={{time()}}"></script> @endif
     @if($data['index'] == 'Buy') <script src="{{ asset('front/js/buy.js') }}?v={{time()}}"></script> @endif
     @if($data['index'] == 'Stock') <script src="{{ asset('front/js/stock.js') }}?v={{time()}}"></script> @endif
+    @if($data['index'] == 'Sell') <script src="{{ asset('front/js/sell.js') }}?v={{time()}}"></script> @endif
   </body>
 </html>

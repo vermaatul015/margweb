@@ -36,4 +36,14 @@ class Helper
         return array($cost_price , $quantity, $paid, $total_cost_price,$due);
     }
 
+    public static function calculateAmountRecieved($selling_price , $quantity, $amount_received){
+        $selling_price = number_format((float)$selling_price, 2, '.', '');
+        $quantity = (int)$quantity;
+        $amount_received = number_format((float)$amount_received, 2, '.', '');
+        $total_selling_price = $selling_price * $quantity;
+        $total_selling_price = number_format((float)$total_selling_price, 2, '.', '');
+        $due = $total_selling_price - $amount_received;
+        return array($selling_price , $quantity, $amount_received, $total_selling_price,$due);
+    }
+
 }
