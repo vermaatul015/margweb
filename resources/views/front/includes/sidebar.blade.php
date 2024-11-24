@@ -15,6 +15,9 @@
       <li class="nav-item {{$data['index'] == 'Buy' ? 'active' : ''}}">
         <a class="nav-link" href="{{route('buy_list')}}">Buy</a>
       </li>
+      <li class="nav-item {{$data['index'] == 'Stock' ? 'active' : ''}}">
+        <a class="nav-link" href="{{route('stock_list')}}">My Stocks</a>
+      </li>
       <li class="nav-item {{$data['index'] == 'Sell' ? 'active' : ''}}">
         <a class="nav-link" href="#">Sell</a>
       </li>

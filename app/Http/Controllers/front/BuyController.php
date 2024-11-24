@@ -10,6 +10,7 @@ use Helper;
 use App\Models\Supplier;
 use App\Models\Product;
 use App\Models\Buy;
+use App\Models\Stock;
 
 class BuyController extends Controller
 {
@@ -39,6 +40,7 @@ class BuyController extends Controller
     {
         $validator = Validator::make($request->all(),
             [
+                'product_id' => 'required',
                 'supplier_name' => 'required',
                 'name' => 'required|max:50',
                 'cost_price' => 'required|numeric',
@@ -65,6 +67,13 @@ class BuyController extends Controller
             $buy->paid = $paid;
             $buy->due = $due;
             if($buy->save()){
+                $existingStock = Stock::where('product_id',$request->product_id)->where('cost_price',$cost_price)->first();
+                if($existingStock){
+                    $existingStock->increment('quantity', $quantity);
+                }else{
+                    $inputs = ['product_id'=>$request->product_id,'name'=>$request->name,'cost_price'=>$cost_price,'quantity'=>$quantity];
+                    Stock::create($inputs);
+                }                
                 return Response::json(Helper::generateResponseBody((object)[],'Product bought successfully.'));
             }else{
                 return Response::json(Helper::generateResponseBody((object)[], 'Something went wrong.', false, \Config::get('ws_constant.code.CODE_202')));
