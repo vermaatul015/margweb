@@ -47,6 +47,7 @@
       <th scope="col">Amount Recieved (₹)</th>
       <th scope="col">@sortablelink('name' ,'Due Amount (₹)')</th>
       <th scope="col">Action</th>
+      <th scope="col">Bill</th>
     </tr>
   </thead>
   <tbody>
@@ -67,8 +68,10 @@
         </a>&nbsp;     
         <a class="link-color1 delete_sell" sell-id="{{$val->id}}" href=""  title="Delete sold product">
         <i class="fa fa-trash-o" aria-hidden="true"></i>
-        </a>               
+        </a>
+            
       </td>
+      <td><a class="print_payment" href="{{route('invoice',['id'=>$val->id])}}" target="_blank" title="Ebill"><i class="fa fa-print" aria-hidden="true"></i></a></td>
     </tr>
     @endforeach
     @else

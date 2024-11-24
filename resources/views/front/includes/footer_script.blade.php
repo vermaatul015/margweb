@@ -5,6 +5,8 @@
     <script src="{{asset('front/assets/js/popper.min.js')}}" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="{{asset('front/assets/js/bootstrap.min.js')}}" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="{{asset('front/assets/js/sweetalert.min.js')}}"></script>
+    <script src="{{asset('front/assets/js/jspdf.min.js')}}"></script>
+    <script src="{{ asset('bower_components/cropper/cropbox-min.js') }}"></script>
     <script>
       $.ajaxSetup({
         headers: {
@@ -31,5 +33,7 @@
     @if($data['index'] == 'Buy') <script src="{{ asset('front/js/buy.js') }}?v={{time()}}"></script> @endif
     @if($data['index'] == 'Stock') <script src="{{ asset('front/js/stock.js') }}?v={{time()}}"></script> @endif
     @if($data['index'] == 'Sell') <script src="{{ asset('front/js/sell.js') }}?v={{time()}}"></script> @endif
+    @if($data['index'] == 'Invoice') <script src="{{ asset('front/js/invoice.js') }}?v={{time()}}"></script> @endif
+    @if($data['index'] == 'User') <script src="{{ asset('front/js/user.js') }}?v={{time()}}"></script> @endif
   </body>
 </html>

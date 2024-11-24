@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->integer('id', true);
             $table->string('name')->nullable();
             $table->string('gst')->nullable();
+            $table->string('logo')->nullable();
             $table->dateTime('created_at')->nullable();
             $table->dateTime('updated_at')->nullable();
             $table->dateTime('deleted_at')->nullable();

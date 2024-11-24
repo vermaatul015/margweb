@@ -175,7 +175,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
-
+        Intervention\Image\ImageServiceProvider::class,
     ],
 
     /*
@@ -228,7 +228,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Helper' => App\Http\Helpers\Helper::class,
-
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

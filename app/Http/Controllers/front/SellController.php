@@ -12,6 +12,7 @@ use App\Models\Product;
 use App\Models\Buy;
 use App\Models\Stock;
 use App\Models\Sell;
+use App\Models\User;
 
 class SellController extends Controller
 {
@@ -35,6 +36,16 @@ class SellController extends Controller
         $data['supplier'] = Supplier::select('id','name')->get();
         $data['stock'] = Stock::select('id','product_id','name','cost_price','quantity','selling_price')->get();
         return view('front/sell')->with('data',$data);
+    }
+
+    public function invoice($id=null){
+        $data['index']            = "Invoice";
+        $data['id']            = $id;
+        $sell = Sell::find($id);
+        $data['sell'] = $sell;
+        $data['user'] = User::first();
+        $data['base_url'] = \URL::to('/').'/uploads/';
+        return view('front/invoice')->with('data',$data);
     }
 
     public function addSell(Request $request)
