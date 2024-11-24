@@ -26,15 +26,14 @@ class Helper
         return $result;
     }
 
-    public static function calculateDue($cost_price , $quantity, $paid, $selling_price){
+    public static function calculateDue($cost_price , $quantity, $paid){
         $cost_price = number_format((float)$cost_price, 2, '.', '');
         $quantity = (int)$quantity;
         $paid = number_format((float)$paid, 2, '.', '');
-        $selling_price = number_format((float)$selling_price, 2, '.', '');
         $total_cost_price = $cost_price * $quantity;
         $total_cost_price = number_format((float)$total_cost_price, 2, '.', '');
         $due = $total_cost_price - $paid;
-        return array($cost_price , $quantity, $paid, $selling_price,$total_cost_price,$due);
+        return array($cost_price , $quantity, $paid, $total_cost_price,$due);
     }
 
 }

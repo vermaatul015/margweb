@@ -11,7 +11,7 @@ class Sell extends Model
         return $this->belongsTo('App\Models\Supplier');
     }
 
-    public function buys()
+    public function buy()
     {
         return $this->belongsTo('App\Models\Buy');
     }

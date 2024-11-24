@@ -80,7 +80,6 @@ $(document).on("click","#buy_submit",function(e){
             "name":$("#product_name").val(),
             "quantity":$("#quantity").val(),
             "paid":$("#paid").val(),
-            "selling_price":$("#selling_price").val(),
             "buy_id":$("#buy_id").val()
         },
         success: function(data) {
@@ -110,8 +109,8 @@ $(document).on("click","#add_buy",function(e){
     $("#product_price").val('')
     $("#product_name").val('')
     $("#quantity").val('')
+    $("#quantity").prop('disabled', false);
     $("#paid").val('')
-    $("#selling_price").val('')
     $("#buy_id").val('');
     $("#buy_submit").html("Add");
     $("#buyModal").modal("toggle")
@@ -127,7 +126,6 @@ $(document).on("click",".edit_buy",function(e){
     var cost_price = $("#cost_price_"+buy_id).html();
     var quantity = $("#quantity_"+buy_id).html();
     var paid = $("#paid_"+buy_id).html();
-    var selling_price = $("#selling_price_"+buy_id).html();
     $("#buyModalLabel").html("Edit bought Product");
     $("#supplier_id").val(supplier_id)
     $("#supplier_name").val(supplier_name)
@@ -135,8 +133,8 @@ $(document).on("click",".edit_buy",function(e){
     $("#product_price").val(cost_price)
     $("#product_name").val(product_name)
     $("#quantity").val(quantity)
+    $("#quantity").prop('disabled', true);
     $("#paid").val(paid)
-    $("#selling_price").val(selling_price)
     $("#buy_id").val(buy_id);
     $("#buy_submit").html("Edit");
     $("#buyModal").modal("toggle")

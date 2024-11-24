@@ -38,15 +38,14 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">@sortablelink('created_at','Bought Date Time')</th>
       <th scope="col">@sortablelink('supplier_name', 'Supplier Name')</th>
       <th scope="col">@sortablelink('name' ,'Product Name')</th>
       <th scope="col">Cost Price (₹)</th>
       <th scope="col">quantity</th>
       <th scope="col">Total Cost Price (₹)</th>
       <th scope="col">Paid Amount (₹)</th>
-      <th scope="col">Due Amount (₹)</th>
-      <th scope="col">Selling Price (₹)</th>
+      <th scope="col">@sortablelink('name' ,'Due Amount (₹)')</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -54,15 +53,14 @@
   @if(count($data['buy']) > 0)   
   @foreach ($data['buy'] as $key => $val)
     <tr>
-      <th scope="row">{{++$key}}</th>
-      <td id="supplier_name_{{$val->id}}" supplier_id="{{$val->supplier_id}}">{{$val->supplier_name}}</td>
-      <td id="product_name_{{$val->id}}" product_id="{{$val->product_id}}">{{$val->name}}</td>
+      <th scope="row">{{$val->created_at->format('M jS,y h:i a')}}</th>
+      <td id="supplier_name_{{$val->id}}" supplier_id="{{$val->supplier_id}}">{{$val->supplier ? $val->supplier->name : $val->supplier_name}}</td>
+      <td id="product_name_{{$val->id}}" product_id="{{$val->product_id}}">{{$val->product ? $val->product->name : $val->name}}</td>
       <td id="cost_price_{{$val->id}}">{{$val->cost_price}}</td>
       <td id="quantity_{{$val->id}}">{{$val->quantity}}</td>
       <td id="total_cost_price_{{$val->id}}">{{$val->total_cost_price}}</td>
       <td id="paid_{{$val->id}}">{{$val->paid}}</td>
       <td id="due_{{$val->id}}" class="{{$val->due > 0 ? 'alert-danger' : 'alert-success'}}">{{$val->due}}</td>
-      <td id="selling_price_{{$val->id}}">{{$val->selling_price}}</td>
       <td>
         <a class="link-color1 edit_buy" buy-id="{{$val->id}}" href="" title="Edit bought product" >
         <i class="fa fa-edit" aria-hidden="true" title="Edit" alt="Edit"></i>
@@ -116,7 +114,7 @@
               </div>
             </div>
             <div class="col-sm-5">
-              <input type="text" class="form-control" id="supplier_name" name="supplier_name" value="" placeholder="Supplier Name">
+              <input type="text" disabled class="form-control" id="supplier_name" name="supplier_name" value="" placeholder="Supplier Name">
               <input type="hidden"  class="form-control" id="supplier_id" name="supplier_id" value="">
             </div>
           </div>
@@ -137,7 +135,7 @@
               </div>
             </div>
             <div class="col-sm-5">
-              <input type="text" class="form-control" id="product_name" name="product_name" value="" placeholder="Product Name">
+              <input type="text" disabled class="form-control" id="product_name" name="product_name" value="" placeholder="Product Name">
               <input type="hidden"  class="form-control" id="product_id" name="product_id" value="">
             </div>
             
@@ -145,7 +143,7 @@
           <div class="form-group row">
           <label for="product_name" class="col-sm-2 col-form-label"></label>
             <div class="col-sm-5">
-              <input type="text" class="form-control" id="product_price" name="cost_price" value="" placeholder="Cost Price">
+              <input type="text" disabled class="form-control" id="product_price" name="cost_price" value="" placeholder="Cost Price">
             </div>
             <div class="col-sm-5">
               <input type="text" class="form-control" id="quantity" name="quantity" value="" placeholder="Quantity">
@@ -155,12 +153,6 @@
             <label for="paid" class="col-sm-2 col-form-label">Paid Amount(₹)</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" id="paid" name="paid" value="">
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="selling_price" class="col-sm-2 col-form-label">Selling Price(₹)</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="selling_price" name="selling_price" >
             </div>
           </div>
           <input type="hidden" class="form-control" id="buy_id" name="buy_id" >

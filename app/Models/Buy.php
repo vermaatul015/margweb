@@ -8,15 +8,15 @@ use Kyslik\ColumnSortable\Sortable;
 class Buy extends Model
 {
     use Sortable;
-    protected $fillable = ['supplier_id', 'supplier_name','product_id', 'name', 'cost_price','quantity','total_cost_price','paid','due','selling_price' ];
-	public $sortable = ['supplier_id', 'supplier_name','product_id', 'name', 'cost_price','quantity','total_cost_price','paid','due','selling_price'];
+    protected $fillable = ['supplier_id', 'supplier_name','product_id', 'name', 'cost_price','quantity','total_cost_price','paid','due' ];
+	public $sortable = ['supplier_id', 'supplier_name','product_id', 'name', 'cost_price','quantity','total_cost_price','paid','due'];
 
     public function supplier()
     {
         return $this->belongsTo('App\Models\Supplier');
     }
 
-    public function products()
+    public function product()
     {
         return $this->belongsTo('App\Models\Product');
     }

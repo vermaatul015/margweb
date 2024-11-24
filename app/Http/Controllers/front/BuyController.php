@@ -18,7 +18,7 @@ class BuyController extends Controller
         $searchKey               = ($request->all())?$request->skey:'';
         $data['skey']            = $searchKey;
         $num_results_on_page = \Config::get('ws_constant.per_page');
-        $data['buy'] = Buy::select('id','supplier_id','supplier_name','product_id','name','cost_price','quantity','total_cost_price','paid','due','selling_price','created_at');
+        $data['buy'] = Buy::select('id','supplier_id','supplier_name','product_id','name','cost_price','quantity','total_cost_price','paid','due','created_at');
         if($searchKey){
             $data['buy'] = $data['buy']->where(function ($query) use($searchKey) {
                 $query->where('supplier_name','like', '%'.$searchKey.'%')
@@ -26,8 +26,7 @@ class BuyController extends Controller
                 ->orWhere('cost_price','like', '%'.$searchKey.'%')
                 ->orWhere('quantity','like', '%'.$searchKey.'%')
                 ->orWhere('paid','like', '%'.$searchKey.'%')
-                ->orWhere('due','like', '%'.$searchKey.'%')
-                ->orWhere('selling_price','like', '%'.$searchKey.'%');
+                ->orWhere('due','like', '%'.$searchKey.'%');
             });
         }
         $data['buy'] = $data['buy']->sortable(['created_at' => 'desc'])->paginate($num_results_on_page);
@@ -44,15 +43,14 @@ class BuyController extends Controller
                 'name' => 'required|max:50',
                 'cost_price' => 'required|numeric',
                 'quantity' => 'required|numeric',
-                'paid' => 'required|numeric',
-                'selling_price' => 'required|numeric'
+                'paid' => 'required|numeric'
             ]
         );
         $errors = $validator->errors()->all();
         if ($errors) {
             return Response::json(Helper::generateResponseBody((object)[], ["errors" => $errors], false, \Config::get('ws_constant.code.CODE_201')));
         } else {
-            list($cost_price , $quantity, $paid, $selling_price,$total_cost_price,$due) = Helper::calculateDue($request->cost_price,$request->quantity,$request->paid,$request->selling_price);
+            list($cost_price , $quantity, $paid,$total_cost_price,$due) = Helper::calculateDue($request->cost_price,$request->quantity,$request->paid);
             if($due < 0){
                 return Response::json(Helper::generateResponseBody((object)[], 'You are paying more than total cost price.', false, \Config::get('ws_constant.code.CODE_202')));
             }
@@ -65,7 +63,6 @@ class BuyController extends Controller
             $buy->quantity = $quantity;
             $buy->total_cost_price = $total_cost_price;
             $buy->paid = $paid;
-            $buy->selling_price = $selling_price;
             $buy->due = $due;
             if($buy->save()){
                 return Response::json(Helper::generateResponseBody((object)[],'Product bought successfully.'));
@@ -84,8 +81,7 @@ class BuyController extends Controller
                 'name' => 'required|max:50',
                 'cost_price' => 'required|numeric',
                 'quantity' => 'required|numeric',
-                'paid' => 'required|numeric',
-                'selling_price' => 'required|numeric'
+                'paid' => 'required|numeric'
             ]
         );
         $errors = $validator->errors()->all();
@@ -94,7 +90,7 @@ class BuyController extends Controller
         } else {
             $buy = Buy::where('id',$request->buy_id)->first();
             if($buy){
-                list($cost_price , $quantity, $paid, $selling_price,$total_cost_price,$due) =  Helper::calculateDue($request->cost_price,$request->quantity,$request->paid,$request->selling_price);
+                list($cost_price , $quantity, $paid, $total_cost_price,$due) =  Helper::calculateDue($request->cost_price,$request->quantity,$request->paid);
                 if($due < 0){
                     return Response::json(Helper::generateResponseBody((object)[], 'You are paying more than total cost price.', false, \Config::get('ws_constant.code.CODE_202')));
                 }
@@ -106,7 +102,6 @@ class BuyController extends Controller
                 $buy->quantity = $quantity;
                 $buy->total_cost_price = $total_cost_price;
                 $buy->paid = $paid;
-                $buy->selling_price = $selling_price;
                 $buy->due = $due;
                 if($buy->save()){
                     return Response::json(Helper::generateResponseBody((object)[],'Product bought updated successfully.'));
