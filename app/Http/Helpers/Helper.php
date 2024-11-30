@@ -27,13 +27,24 @@ class Helper
     }
 
     public static function calculateDue($cost_price , $quantity, $paid){
-        $cost_price = number_format((float)$cost_price, 2, '.', '');
-        $quantity = (int)$quantity;
-        $paid = number_format((float)$paid, 2, '.', '');
-        $total_cost_price = $cost_price * $quantity;
+        $paid_arr = [];
+        $cp_arr = [];
+        $quantity_arr = [];
+        $total_cost_price = 0;
+        $total_paid_amount = 0;
+        foreach($paid as $k => $p){
+            $paid_arr[] = number_format((float)$paid[$k], 2, '.', '');
+            $total_paid_amount += $paid_arr[$k];
+        }
+        foreach($cost_price as $key => $cp){
+            $cp_arr[] = number_format((float)$cp, 2, '.', '');
+            $quantity_arr[] = (int)$quantity[$key];
+            $total_cost_price += $cp_arr[$key] * $quantity_arr[$key];
+        }
+        
         $total_cost_price = number_format((float)$total_cost_price, 2, '.', '');
-        $due = $total_cost_price - $paid;
-        return array($cost_price , $quantity, $paid, $total_cost_price,$due);
+        $due = $total_cost_price - $total_paid_amount;
+        return array($cp_arr , $quantity_arr, $paid_arr, $total_cost_price,$total_paid_amount,$due);
     }
 
     public static function calculateAmountRecieved($selling_price , $quantity, $amount_received){

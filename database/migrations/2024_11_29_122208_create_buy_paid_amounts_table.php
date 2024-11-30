@@ -30,8 +30,6 @@ class CreateBuyPaidAmountsTable extends Migration
      */
     public function down()
     {
-        Schema::table('buy_paid_amounts', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('buy_products');
     }
 }

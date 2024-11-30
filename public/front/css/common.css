@@ -67,3 +67,23 @@
   
   /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
   .show {display:block;}
+
+
+  .modal-body-scroll {
+    overflow-y: auto;
+    height: 430px;
+  }
+
+  .datepickfront:hover{cursor: pointer;}
+
+  .add_product_btn{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .calculate_price{
+    display: flex;
+    justify-content: space-around;
+    border-style: groove;
+    margin: 32px;
+  }

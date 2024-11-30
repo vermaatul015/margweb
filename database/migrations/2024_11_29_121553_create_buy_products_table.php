@@ -33,8 +33,6 @@ class CreateBuyProductsTable extends Migration
      */
     public function down()
     {
-        Schema::table('buy_products', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('buy_products');
     }
 }

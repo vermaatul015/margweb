@@ -7,8 +7,9 @@
     <meta name="ts" content="{{ csrf_token() }}" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('bower_components/font-awesome/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{asset('front/assets/css/bootstrap.min.css')}}" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{asset('front/css/common.css')}}" />
+    <link rel="stylesheet" href="{{asset('front/assets/css/bootstrap.min.css')}}" >
+    <link rel="stylesheet" href="{{asset('front/assets/css/bootstrap-datepicker.min.css')}}" >
+    <link rel="stylesheet" href="{{asset('front/css/common.css')}}?v={{time()}}" />
     <title>MargWEB</title>
   </head>
   <body>

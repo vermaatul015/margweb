@@ -36,6 +36,10 @@ Route::group(['namespace' => 'front'],function(){
         Route::post('add-buy', [ 'as' => 'add-buy', 'uses' => 'BuyController@addBuy']);
         Route::post('edit-buy', [ 'as' => 'edit-buy', 'uses' => 'BuyController@editBuy']);
         Route::post('delete-buy', [ 'as' => 'delete-buy', 'uses' => 'BuyController@deleteBuy']);
+        Route::post('delete-buy-product', [ 'as' => 'delete-buy-product', 'uses' => 'BuyController@deleteBuyProduct']);
+        Route::post('add-buy-product', [ 'as' => 'add-buy-product', 'uses' => 'BuyController@addBuyProduct']);
+        Route::post('delete-buy-paid-amount', [ 'as' => 'delete-buy-paid-amount', 'uses' => 'BuyController@deleteBuyPaidAmount']);
+        Route::post('add-buy-paid-amount', [ 'as' => 'add-buy-paid-amount', 'uses' => 'BuyController@addBuyPaidAmount']);
     });
     Route::group(['prefix'=>'stock'],function(){
         Route::any('/',['as' => 'stock_list','uses' => 'StockController@list']);

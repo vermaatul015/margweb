@@ -1,9 +1,10 @@
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="{{asset('front/assets/js/jquery-3.2.1.slim.min.js')}}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="{{asset('front/assets/js/jquery-3.7.1.min.js')}}"  crossorigin="anonymous"></script>
-    <script src="{{asset('front/assets/js/popper.min.js')}}" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="{{asset('front/assets/js/bootstrap.min.js')}}" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="{{asset('front/assets/js/jquery-3.2.1.slim.min.js')}}" ></script>
+    <script src="{{asset('front/assets/js/jquery-3.7.1.min.js')}}"  ></script>
+    <script src="{{asset('front/assets/js/popper.min.js')}}" ></script>
+    <script src="{{asset('front/assets/js/bootstrap.min.js')}}" ></script>
+    <script src="{{asset('front/assets/js/bootstrap-datepicker.min.js')}}" ></script>
     <script src="{{asset('front/assets/js/sweetalert.min.js')}}"></script>
     <script src="{{asset('front/assets/js/jspdf.min.js')}}"></script>
     <script src="{{ asset('bower_components/cropper/cropbox-min.js') }}"></script>
@@ -22,6 +23,8 @@
       var add_buy = "{{route('add-buy')}}"
       var edit_buy = "{{route('edit-buy')}}"
       var delete_buy = "{{route('delete-buy')}}"
+      var add_buy_product_url = "{{route('add-buy-product')}}"
+      var add_buy_paid_amount_url = "{{route('add-buy-paid-amount')}}"
       var edit_stock = "{{route('edit-stock')}}"
       var delete_stock = "{{route('delete-stock')}}"
       var add_sell = "{{route('add-sell')}}"
