@@ -368,3 +368,17 @@ $(document).on("click",".delete_buy",function(e){
     });
     
 });
+
+
+$(document).on("click",".showProductClass",function(e){
+    e.preventDefault();
+    $('#detailModalBody').empty();
+    var id = $(this).attr("body-div");
+    var html = $("#"+id).html();
+    $("#detailModalBody").html(html);
+    $("#detailModal").modal("toggle")
+});
+
+$('#detailModal').on('hidden.bs.modal', function () {
+    $('#detailModalBody').empty();
+});

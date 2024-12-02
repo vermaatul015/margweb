@@ -58,14 +58,17 @@
       <td id="total_paid_amount_{{$val->id}}">{{$val->total_paid_amount}}</td>
       <td id="due_{{$val->id}}" ><div class="{{$val->due > 0 ? 'alert-danger' : 'alert-success'}}">{{$val->due}}</div></td>
       <td class="products"> 
-        <a class="btn btn-primary" data-toggle="collapse" href="#products_{{$val->id}}" role="button" aria-expanded="false" aria-controls="products_{{$val->id}}">
+        <!-- <a class="btn btn-primary" data-toggle="collapse" href="#products_{{$val->id}}" role="button" aria-expanded="false" aria-controls="products_{{$val->id}}">
+          Show Products
+        </a> -->
+        <a class="btn btn-primary showProductClass" body-div="products_{{$val->id}}" data-toggle="modal" data-target="#detailModal" role="button" >
           Show Products
         </a>
         
       </td>
       
       <td class="paid_amounts">
-        <a class="btn btn-primary" data-toggle="collapse" href="#paids_{{$val->id}}" role="button" aria-expanded="false" aria-controls="paids_{{$val->id}}">
+        <a class="btn btn-primary showProductClass" body-div="paids_{{$val->id}}" data-toggle="modal" data-target="#detailModal" role="button" >
           Show Paid Amount
         </a>
         
@@ -82,7 +85,11 @@
     </tr>
     <tr >
       <div class="collapse" id="products_{{$val->id}}" count="{{optional($val->products)->count()}}">
-        
+      <ul class="d-flex flex-wrap list-group-horizontal">
+        <li class="list-group-item"><b>NAME</b></li>
+        <li class="list-group-item"><b>COST PRICE (₹)</b></li>
+        <li class="list-group-item"><b>QUANTITY</b></li>
+      </ul>
         @foreach($val->products as $k => $prd)
         <ul class="d-flex flex-wrap list-group-horizontal">
           
@@ -98,6 +105,10 @@
     </tr>
     <tr>
       <div class="collapse" id="paids_{{$val->id}}" count="{{optional($val->paids)->count()}}">
+        <ul class="d-flex flex-wrap list-group-horizontal">
+          <li class="list-group-item"><b>PAID DATE</b></li>
+          <li class="list-group-item"><b>AMOUNT (₹)</b></li>
+        </ul>
           @foreach($val->paids as $k => $paid)
           <ul class="d-flex flex-wrap list-group-horizontal">
             <li class="list-group-item" id="paid_date_{{$val->id}}_{{$k}}">{{Carbon\Carbon::parse($paid->paid_date)->format('Y-m-d')}}</li>
@@ -190,6 +201,28 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close_buy_modal">Close</button>
         <button type="button" class="btn btn-primary" id="buy_submit">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="detailModalLabel"> Product Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body modal-body-scroll" id="detailModalBody">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close_detail_modal">Close</button>
       </div>
     </div>
   </div>
