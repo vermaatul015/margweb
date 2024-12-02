@@ -39,7 +39,7 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">@sortablelink('supplier_name', 'Supplier Name')</th>
+      <th scope="col">@sortablelink('supplier_name', 'Party Name')</th>
       <th scope="col">@sortablelink('name' ,'Product Name')</th>
       <th scope="col">Price (₹)</th>
       <th scope="col">Action</th>
@@ -90,11 +90,11 @@
         
         <form>
           <div class="form-group row">
-            <label for="supplier_name" class="col-sm-2 col-form-label">Supplier Name</label>
+            <label for="supplier_name" class="col-sm-2 col-form-label">Party Name</label>
 
             <div class="col-sm-5">
               <div class="dropdown">
-                <button id="myFunction" class="dropbtn">Choose Supplier <i class="fa fa-caret-down"></i></button>
+                <button id="myFunction" class="dropbtn">Choose Party <i class="fa fa-caret-down"></i></button>
                 <div id="myDropdown" class="dropdown-content">
                   <!-- <i class="fa fa-search"></i> -->
                   <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">

@@ -1,5 +1,5 @@
 @extends('front/template')
-@section('title', 'Supplier')
+@section('title', 'Party')
 
 @section('content')
 <div class="container">
@@ -7,12 +7,12 @@
 <div class="table-header">
   <div>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#supplierModal" id="add_supplier">
-    Add Supplier
+    Add Party
     </button>
   </div>
   <div>
     @if(count($data['supplier']) > 0)                    
-        Showing <span>{{$data['supplier']->firstItem()}} to {{$data['supplier']->lastItem()}} of {{$data['supplier']->total()}}</span> Supplier
+        Showing <span>{{$data['supplier']->firstItem()}} to {{$data['supplier']->lastItem()}} of {{$data['supplier']->total()}}</span> Party
     @endif
   </div>
 </div>
@@ -52,10 +52,10 @@
       <td id="supplier_name_{{$val->id}}">{{$val->name}}</td>
       <td id="gst_{{$val->id}}">{{$val->gst}}</td>
       <td>
-        <a class="link-color1 edit_supplier" supplier-id="{{$val->id}}" href="" title="Edit Supplier" >
+        <a class="link-color1 edit_supplier" supplier-id="{{$val->id}}" href="" title="Edit Party" >
         <i class="fa fa-edit" aria-hidden="true" title="Edit" alt="Edit"></i>
         </a>&nbsp;     
-        <a class="link-color1 delete_supplier" supplier-id="{{$val->id}}" href=""  title="Delete Supplier">
+        <a class="link-color1 delete_supplier" supplier-id="{{$val->id}}" href=""  title="Delete Party">
         <i class="fa fa-trash-o" aria-hidden="true"></i>
         </a>               
       </td>
@@ -79,7 +79,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="supplierModalLabel">Add Supplier</h5>
+        <h5 class="modal-title" id="supplierModalLabel">Add Party</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -88,7 +88,7 @@
         
         <form>
           <div class="form-group row">
-            <label for="name" class="col-sm-2 col-form-label">Supplier Name</label>
+            <label for="name" class="col-sm-2 col-form-label">Party Name</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" id="name" name="name" value="">
             </div>

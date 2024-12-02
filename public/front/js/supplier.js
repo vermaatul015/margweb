@@ -1,6 +1,6 @@
 $(document).on("click","#supplier_submit",function(e){
     e.preventDefault();
-    var url = $("#supplierModalLabel").html() == "Add Supplier" ? add_supplier : edit_supplier;
+    var url = $("#supplierModalLabel").html() == "Add Party" ? add_supplier : edit_supplier;
     $.ajax({
         url: url,
         type: "post", 
@@ -29,7 +29,7 @@ $(document).on("click","#supplier_submit",function(e){
 });
 $(document).on("click","#add_supplier",function(e){
     e.preventDefault();
-    $("#supplierModalLabel").html("Add Supplier");
+    $("#supplierModalLabel").html("Add Party");
     $("#name").val('')
     $("#gst").val('')
     $("#supplier_id").val('');
@@ -42,11 +42,11 @@ $(document).on("click",".edit_supplier",function(e){
     var supplier_id = $(this).attr("supplier-id");
     var supplier_name = $("#supplier_name_"+supplier_id).html();
     var gst = $("#gst_"+supplier_id).html();
-    $("#supplierModalLabel").html("Edit Supplier");
+    $("#supplierModalLabel").html("Edit Party");
     $("#name").val(supplier_name)
     $("#gst").val(gst)
     $("#supplier_id").val(supplier_id);
-    $("#supplier_submit").html("Edit");
+    $("#supplier_submit").html("OK");
     $("#supplierModal").modal("toggle")
 });
 
@@ -74,7 +74,7 @@ $(document).on("click",".delete_supplier",function(e){
                             swal("Validation Error", s, "error");
                         }else{
                             $("#close_supplier_modal").trigger("click")
-                            swal("Supplier Deleted!", data.responseStatus.MESSAGE, "success");
+                            swal("Party Deleted!", data.responseStatus.MESSAGE, "success");
                             location.reload();
                         }
                     }

@@ -38,7 +38,7 @@
   <thead>
     <tr>
       <th scope="col">@sortablelink('created_at','Bought Date Time')</th>
-      <th scope="col">@sortablelink('supplier_name', 'Supplier Name')</th>
+      <th scope="col">@sortablelink('supplier_name', 'Party Name')</th>
       <th scope="col">Total Cost Price (₹)</th>
       <th scope="col">Total Paid Amount (₹)</th>
       <th scope="col">@sortablelink('due' ,'Due Amount (₹)')</th>
@@ -142,11 +142,11 @@
         
         <form>
           <div class="form-group row">
-            <label for="supplier_name" class="col-sm-2 col-form-label">Supplier</label>
+            <label for="supplier_name" class="col-sm-2 col-form-label">Party</label>
 
             <div class="col-sm-5">
               <div class="dropdown">
-                <button id="myFunction" class="dropbtn">Choose Supplier <i class="fa fa-caret-down"></i></button>
+                <button id="myFunction" class="dropbtn">Choose Party <i class="fa fa-caret-down"></i></button>
                 <div id="myDropdown" class="dropdown-content">
                   <!-- <i class="fa fa-search"></i> -->
                   <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
@@ -158,7 +158,7 @@
               </div>
             </div>
             <div class="col-sm-5">
-              <input type="text" disabled class="form-control" id="supplier_name" name="supplier_name" value="" placeholder="Supplier Name">
+              <input type="text" disabled class="form-control" id="supplier_name" name="supplier_name" value="" placeholder="Party Name">
               <input type="hidden"  class="form-control" id="supplier_id" name="supplier_id" value="">
             </div>
           </div>

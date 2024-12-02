@@ -88,7 +88,7 @@ $(document).on("click",".edit_product",function(e){
     $("#name").val(product_name)
     $("#price").val(price)
     $("#product_id").val(product_id);
-    $("#product_submit").html("Edit");
+    $("#product_submit").html("OK");
     $("#productModal").modal("toggle")
 });
 
