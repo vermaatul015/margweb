@@ -52,6 +52,10 @@ Route::group(['namespace' => 'front'],function(){
         Route::post('edit-sell', [ 'as' => 'edit-sell', 'uses' => 'SellController@editSell']);
         Route::post('delete-sell', [ 'as' => 'delete-sell', 'uses' => 'SellController@deleteSell']);
         Route::any('/invoice/{id?}',['as' => 'invoice','uses' => 'SellController@invoice']);
+        Route::post('delete-sell-product', [ 'as' => 'delete-sell-product', 'uses' => 'SellController@deleteSellProduct']);
+        Route::post('add-sell-product', [ 'as' => 'add-sell-product', 'uses' => 'SellController@addSellProduct']);
+        Route::post('delete-sell-paid-amount', [ 'as' => 'delete-sell-paid-amount', 'uses' => 'SellController@deleteSellPaidAmount']);
+        Route::post('add-sell-paid-amount', [ 'as' => 'add-sell-paid-amount', 'uses' => 'SellController@addSellPaidAmount']);
     });
     Route::group(['prefix'=>'user'],function(){
         Route::any('/',['as' => 'user','uses' => 'UserController@index']);

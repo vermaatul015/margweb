@@ -16,11 +16,6 @@ class Buy extends Model
         return $this->belongsTo('App\Models\Supplier');
     }
 
-    public function product()
-    {
-        return $this->belongsTo('App\Models\Product');
-    }
-
     public function products()
     {
         return $this->hasMany('App\Models\BuyProduct');

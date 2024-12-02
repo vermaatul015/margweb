@@ -41,7 +41,7 @@
       <th scope="col">@sortablelink('supplier_name', 'Supplier Name')</th>
       <th scope="col">Total Cost Price (₹)</th>
       <th scope="col">Total Paid Amount (₹)</th>
-      <th scope="col">@sortablelink('name' ,'Due Amount (₹)')</th>
+      <th scope="col">@sortablelink('due' ,'Due Amount (₹)')</th>
       <th scope="col">Products</th>
       <th scope="col">Amounts Paid (₹)</th>
       <th scope="col">Action</th>
@@ -58,9 +58,6 @@
       <td id="total_paid_amount_{{$val->id}}">{{$val->total_paid_amount}}</td>
       <td id="due_{{$val->id}}" ><div class="{{$val->due > 0 ? 'alert-danger' : 'alert-success'}}">{{$val->due}}</div></td>
       <td class="products"> 
-        <!-- <a class="btn btn-primary" data-toggle="collapse" href="#products_{{$val->id}}" role="button" aria-expanded="false" aria-controls="products_{{$val->id}}">
-          Show Products
-        </a> -->
         <a class="btn btn-primary showProductClass" body-div="products_{{$val->id}}" data-toggle="modal" data-target="#detailModal" role="button" >
           Show Products
         </a>
@@ -85,15 +82,15 @@
     </tr>
     <tr >
       <div class="collapse" id="products_{{$val->id}}" count="{{optional($val->products)->count()}}">
-      <ul class="d-flex flex-wrap list-group-horizontal">
-        <li class="list-group-item"><b>NAME</b></li>
-        <li class="list-group-item"><b>COST PRICE (₹)</b></li>
-        <li class="list-group-item"><b>QUANTITY</b></li>
-      </ul>
+        <ul class="d-flex flex-wrap list-group-horizontal">
+          <li class="list-group-item"><b>NAME</b></li>
+          <li class="list-group-item"><b>COST PRICE (₹)</b></li>
+          <li class="list-group-item"><b>QUANTITY</b></li>
+        </ul>
         @foreach($val->products as $k => $prd)
         <ul class="d-flex flex-wrap list-group-horizontal">
           
-            <li class="list-group-item" id="product_name_{{$val->id}}_{{$k}}" product_id="{{$prd->product_id}}" buy_product_id="{{$prd->id}}">{{$prd->buy ? ($prd->buy->product ? $prd->buy->product->name : $prd->name) : $prd->name}}</li>
+            <li class="list-group-item" id="product_name_{{$val->id}}_{{$k}}" product_id="{{$prd->product_id}}" buy_product_id="{{$prd->id}}">{{$prd->product ? $prd->product->name : $prd->name}}</li>
             <li class="list-group-item" id="cost_price_{{$val->id}}_{{$k}}">{{$prd->cost_price}}</li>
             <li class="list-group-item" id="quantity_{{$val->id}}_{{$k}}">{{$prd->quantity}}</li>
           

@@ -8,16 +8,21 @@ use Kyslik\ColumnSortable\Sortable;
 class Sell extends Model
 {
     use Sortable;
-    protected $fillable = ['supplier_id','supplier_name','stock_id','name','selling_price','quantity','total_selling_price','amount_received','due' ];
-	public $sortable = ['supplier_id','supplier_name','stock_id','name','selling_price','quantity','total_selling_price','amount_received','due'];
+    protected $fillable = ['supplier_id','supplier_name','total_selling_price','total_recieved_amount','due' ];
+	public $sortable = ['supplier_id','supplier_name','total_selling_price','total_recieved_amount','due'];
 
     public function supplier()
     {
         return $this->belongsTo('App\Models\Supplier');
     }
 
-    public function stock()
+    public function products()
     {
-        return $this->belongsTo('App\Models\Stock');
+        return $this->hasMany('App\Models\SellProduct');
+    }
+
+    public function paids()
+    {
+        return $this->hasMany('App\Models\SellPaidAmount');
     }
 }

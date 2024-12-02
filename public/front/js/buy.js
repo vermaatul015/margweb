@@ -258,8 +258,8 @@ $(document).on("click","#add_buy",function(e){
     $("#product_price1").val('')
     $("#product_name1").val('')
     $("#quantity1").val('')
-    $("#buy_product_id1").val('')
     $("#quantity1").prop('disabled', false);
+    $("#buy_product_id1").val('')
     $(".product_html").empty();
     $("#paid1").val('');
     $("#paid1").prop('disabled', false);

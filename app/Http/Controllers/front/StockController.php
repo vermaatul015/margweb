@@ -17,7 +17,7 @@ class StockController extends Controller
         $searchKey               = ($request->all())?$request->skey:'';
         $data['skey']            = $searchKey;
         $num_results_on_page = \Config::get('ws_constant.per_page');
-        $data['stock'] = Stock::select('id','product_id','name','cost_price','quantity','selling_price','created_at');
+        $data['stock'] = Stock::select('id','product_id','name','cost_price','quantity','created_at');
         if($searchKey){
             $data['stock'] = $data['stock']->where(function ($query) use($searchKey) {
                 $query->Where('name','like', '%'.$searchKey.'%');
@@ -31,8 +31,7 @@ class StockController extends Controller
     {
         $validator = Validator::make($request->all(),
             [
-                'stock_id' => 'required',
-                'selling_price' => 'required'
+                'stock_id' => 'required'
             ]
         );
         $errors = $validator->errors()->all();
@@ -41,7 +40,6 @@ class StockController extends Controller
         } else {
             $stock = Stock::where('id',$request->stock_id)->first();
             if($stock){
-                $stock->selling_price = $request->selling_price;
                 if($stock->save()){
                     return Response::json(Helper::generateResponseBody((object)[],'Stock updated successfully.'));
                 }else{

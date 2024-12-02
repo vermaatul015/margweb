@@ -10,4 +10,9 @@ class BuyProduct extends Model
     {
         return $this->belongsTo('App\Models\Buy');
     }
+
+    public function product()
+    {
+        return $this->belongsTo('App\Models\Product');
+    }
 }

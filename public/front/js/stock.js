@@ -9,7 +9,6 @@ $(document).on("click","#stock_submit",function(e){
         url: url,
         type: "post", 
         data: { 
-            "selling_price":$("#selling_price").val(),
             "stock_id":$("#stock_id").val()
         },
         success: function(data) {
@@ -38,13 +37,11 @@ $(document).on("click",".edit_stock",function(e){
     var product_name = $("#product_name_"+stock_id).html();
     var cost_price = $("#cost_price_"+stock_id).html();
     var quantity = $("#quantity_"+stock_id).html();
-    var selling_price = $("#selling_price_"+stock_id).html();
     $("#stockModalLabel").html("Edit Stock");
     $("#product_id").val(product_id)
     $("#cost_price").val(cost_price)
     $("#product_name").val(product_name)
     $("#quantity").val(quantity)
-    $("#selling_price").val(selling_price)
     $("#stock_id").val(stock_id);
     // $("#stock_submit").html("Edit");
     $("#stockModal").modal("toggle")

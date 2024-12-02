@@ -40,7 +40,6 @@
       <th scope="col">@sortablelink('name' ,'Product Name')</th>
       <th scope="col">Cost Price (₹)</th>
       <th scope="col">quantity</th>
-      <th scope="col">Selling Price (₹)</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -52,11 +51,10 @@
       <td id="product_name_{{$val->id}}" product_id="{{$val->product_id}}">{{$val->product ? $val->product->name : $val->name}}</td>
       <td id="cost_price_{{$val->id}}">{{$val->cost_price}}</td>
       <td id="quantity_{{$val->id}}">{{$val->quantity}}</td>
-      <td id="selling_price_{{$val->id}}">{{$val->selling_price}}</td>
       <td>
-        <a class="link-color1 edit_stock" stock-id="{{$val->id}}" href="" title="Edit Stock" >
+        <!-- <a class="link-color1 edit_stock" stock-id="{{$val->id}}" href="" title="Edit Stock" >
         <i class="fa fa-edit" aria-hidden="true" title="Edit" alt="Edit"></i>
-        </a>&nbsp;     
+        </a>&nbsp;      -->
         <a class="link-color1 delete_stock" stock-id="{{$val->id}}" href=""  title="Delete Stock">
         <i class="fa fa-trash-o" aria-hidden="true"></i>
         </a>               
@@ -105,12 +103,6 @@
             </div>
             <div class="col-sm-5">
               <input type="text" disabled class="form-control" id="quantity" name="quantity" value="" placeholder="Quantity">
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="selling_price" class="col-sm-2 col-form-label">Selling Price(₹)</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="selling_price" name="selling_price" value="">
             </div>
           </div>
           <input type="hidden" class="form-control" id="stock_id" name="stock_id" >

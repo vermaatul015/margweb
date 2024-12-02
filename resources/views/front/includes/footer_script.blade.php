@@ -30,6 +30,8 @@
       var add_sell = "{{route('add-sell')}}"
       var edit_sell = "{{route('edit-sell')}}"
       var delete_sell = "{{route('delete-sell')}}"
+      var add_sell_product_url = "{{route('add-sell-product')}}"
+      var add_sell_paid_amount_url = "{{route('add-sell-paid-amount')}}"
     </script>
     @if($data['index'] == 'Supplier') <script src="{{ asset('front/js/supplier.js') }}?v={{time()}}"></script> @endif
     @if($data['index'] == 'Product') <script src="{{ asset('front/js/product.js') }}?v={{time()}}"></script> @endif
