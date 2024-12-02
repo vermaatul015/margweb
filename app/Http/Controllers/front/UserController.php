@@ -68,6 +68,8 @@ class UserController extends Controller
             $user           = $user ?? New User;
             $user->name = $request->name;
             $user->gst = $request->gst;
+            $user->phone_no = $request->phone_no;
+            $user->address = $request->address;
             if($uploadedFile){
                 $user->logo =  $uploadedFile;
             }

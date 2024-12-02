@@ -17,11 +17,12 @@ class ProductController extends Controller
         $searchKey               = ($request->all())?$request->skey:'';
         $data['skey']            = $searchKey;
         $num_results_on_page = \Config::get('ws_constant.per_page');
-        $data['product'] = Product::select('id','supplier_id','supplier_name','name','price','created_at');
+        $data['product'] = Product::select('id','supplier_id','supplier_name','name','price','hsn','created_at');
         if($searchKey){
             $data['product'] = $data['product']->where(function ($query) use($searchKey) {
                 $query->where('supplier_name','like', '%'.$searchKey.'%')
                 ->orWhere('name','like', '%'.$searchKey.'%')
+                ->orWhere('hsn','like', '%'.$searchKey.'%')
                 ->orWhere('price','like', '%'.$searchKey.'%');
             });
         }
@@ -48,6 +49,7 @@ class ProductController extends Controller
             $product->supplier_name = $request->supplier_name ?? '';
             $product->name = $request->name;
             $product->price = $request->price;
+            $product->hsn = $request->hsn;
             if($product->save()){
                 return Response::json(Helper::generateResponseBody((object)[],'Product added successfully.'));
             }else{
@@ -76,6 +78,7 @@ class ProductController extends Controller
                 $product->supplier_name = $request->supplier_name ?? '';
                 $product->name = $request->name;
                 $product->price = $request->price;
+                $product->hsn = $request->hsn;
                 if($product->save()){
                     return Response::json(Helper::generateResponseBody((object)[],'Product updated successfully.'));
                 }else{

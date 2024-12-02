@@ -43,6 +43,7 @@ $(document).on("click","#product_submit",function(e){
             "supplier_name":$("#supplier_name").val(),
             "name":$("#name").val(),
             "price":$("#price").val(),
+            "hsn":$("#hsn").val(),
             "product_id":$("#product_id").val()
         },
         success: function(data) {
@@ -70,6 +71,7 @@ $(document).on("click","#add_product",function(e){
     $("#supplier_name").val('')
     $("#name").val('')
     $("#price").val('')
+    $("#hsn").val('')
     $("#product_id").val('');
     $("#product_submit").html("Add");
     $("#productModal").modal("toggle")
@@ -82,11 +84,13 @@ $(document).on("click",".edit_product",function(e){
     var supplier_name = $("#supplier_name_"+product_id).html();
     var product_name = $("#product_name_"+product_id).html();
     var price = $("#price_"+product_id).html();
+    var hsn = $("#hsn_"+product_id).html();
     $("#productModalLabel").html("Edit Product");
     $("#supplier_id").val(supplier_id)
     $("#supplier_name").val(supplier_name)
     $("#name").val(product_name)
     $("#price").val(price)
+    $("#hsn").val(hsn)
     $("#product_id").val(product_id);
     $("#product_submit").html("OK");
     $("#productModal").modal("toggle")

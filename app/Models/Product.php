@@ -8,8 +8,8 @@ use Kyslik\ColumnSortable\Sortable;
 class Product extends Model
 {
     use Sortable;
-    protected $fillable = ['supplier_id', 'supplier_name', 'name', 'price' ];
-	public $sortable = ['supplier_id', 'supplier_name', 'name', 'price'];
+    protected $fillable = ['supplier_id', 'supplier_name', 'name', 'price','hsn' ];
+	public $sortable = ['supplier_id', 'supplier_name', 'name', 'price','hsn'];
 
     public function supplier()
     {

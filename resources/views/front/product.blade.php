@@ -42,6 +42,7 @@
       <th scope="col">@sortablelink('supplier_name', 'Party Name')</th>
       <th scope="col">@sortablelink('name' ,'Product Name')</th>
       <th scope="col">Price (₹)</th>
+      <th scope="col">HSN</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -53,6 +54,7 @@
       <td id="supplier_name_{{$val->id}}" supplier_id="{{$val->supplier_id}}">{{$val->supplier ? $val->supplier->name : $val->supplier_name}}</td>
       <td id="product_name_{{$val->id}}">{{$val->name}}</td>
       <td id="price_{{$val->id}}">{{$val->price}}</td>
+      <td id="hsn_{{$val->id}}">{{$val->hsn}}</td>
       <td>
         <a class="link-color1 edit_product" product-id="{{$val->id}}" href="" title="Edit product" >
         <i class="fa fa-edit" aria-hidden="true" title="Edit" alt="Edit"></i>
@@ -120,6 +122,12 @@
             <label for="price" class="col-sm-2 col-form-label">Price(₹)</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" id="price" name="price" >
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="price" class="col-sm-2 col-form-label">HSN</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="hsn" name="hsn" >
             </div>
           </div>
           <input type="hidden" class="form-control" id="product_id" name="product_id" >

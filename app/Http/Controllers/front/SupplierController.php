@@ -16,10 +16,12 @@ class SupplierController extends Controller
         $searchKey               = ($request->all())?$request->skey:'';
         $data['skey']            = $searchKey;
         $num_results_on_page = \Config::get('ws_constant.per_page');
-        $data['supplier'] = Supplier::select('id','name','gst','created_at');
+        $data['supplier'] = Supplier::select('id','name','gst','phone_no','address','created_at');
         if($searchKey){
             $data['supplier'] = $data['supplier']->where(function ($query) use($searchKey) {
                 $query->where('name','like', '%'.$searchKey.'%')
+                ->orWhere('phone_no','like', '%'.$searchKey.'%')
+                ->orWhere('address','like', '%'.$searchKey.'%')
                 ->orWhere('gst','like', '%'.$searchKey.'%');
             });
         }
@@ -41,6 +43,8 @@ class SupplierController extends Controller
             $supplier = new Supplier;
             $supplier->name = $request->name;
             $supplier->gst = $request->gst ? $request->gst : "";
+            $supplier->phone_no = $request->phone_no ? $request->phone_no : "";
+            $supplier->address = $request->address ? $request->address : "";
             if($supplier->save()){
                 return Response::json(Helper::generateResponseBody((object)[],'Supplier added successfully.'));
             }else{
@@ -65,6 +69,8 @@ class SupplierController extends Controller
             if($supplier){
                 $supplier->name = $request->name;
                 $supplier->gst = $request->gst;
+                $supplier->phone_no = $request->phone_no ? $request->phone_no : "";
+                $supplier->address = $request->address ? $request->address : "";
                 if($supplier->save()){
                     return Response::json(Helper::generateResponseBody((object)[],'Supplier updated successfully.'));
                 }else{

@@ -7,6 +7,8 @@ $(document).on("click","#supplier_submit",function(e){
         data: { 
             "name":$("#name").val(),
             "gst":$("#gst").val(),
+            "phone_no":$("#phone_no").val(),
+            "address":$("#address").val(),
             "supplier_id": $("#supplier_id").val() 
         },
         success: function(data) {
@@ -32,6 +34,8 @@ $(document).on("click","#add_supplier",function(e){
     $("#supplierModalLabel").html("Add Party");
     $("#name").val('')
     $("#gst").val('')
+    $("#phone_no").val('')
+    $("#address").val('')
     $("#supplier_id").val('');
     $("#supplier_submit").html("Add");
     $("#supplierModal").modal("toggle")
@@ -42,9 +46,13 @@ $(document).on("click",".edit_supplier",function(e){
     var supplier_id = $(this).attr("supplier-id");
     var supplier_name = $("#supplier_name_"+supplier_id).html();
     var gst = $("#gst_"+supplier_id).html();
+    var phone_no = $("#phone_no_"+supplier_id).html();
+    var address = $("#address_"+supplier_id).html();
     $("#supplierModalLabel").html("Edit Party");
     $("#name").val(supplier_name)
     $("#gst").val(gst)
+    $("#phone_no").val(phone_no)
+    $("#address").val(address)
     $("#supplier_id").val(supplier_id);
     $("#supplier_submit").html("OK");
     $("#supplierModal").modal("toggle")

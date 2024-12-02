@@ -41,6 +41,8 @@
       <th scope="col">#</th>
       <th scope="col">@sortablelink('name')</th>
       <th scope="col">@sortablelink('gst')</th>
+      <th scope="col">Phone No</th>
+      <th scope="col">Address</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -51,6 +53,8 @@
       <th scope="row">{{++$key}}</th>
       <td id="supplier_name_{{$val->id}}">{{$val->name}}</td>
       <td id="gst_{{$val->id}}">{{$val->gst}}</td>
+      <td id="phone_no_{{$val->id}}">{{$val->phone_no}}</td>
+      <td id="address_{{$val->id}}">{{$val->address}}</td>
       <td>
         <a class="link-color1 edit_supplier" supplier-id="{{$val->id}}" href="" title="Edit Party" >
         <i class="fa fa-edit" aria-hidden="true" title="Edit" alt="Edit"></i>
@@ -97,6 +101,18 @@
             <label for="gst" class="col-sm-2 col-form-label">GST</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" id="gst" name="gst" >
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="phone_no" class="col-sm-2 col-form-label">Phone No</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="phone_no" name="phone_no" >
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="address" class="col-sm-2 col-form-label">Address</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="address" name="address" >
             </div>
           </div>
           <input type="hidden" class="form-control" id="supplier_id" name="supplier_id" >

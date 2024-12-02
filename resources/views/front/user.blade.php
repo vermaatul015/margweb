@@ -30,6 +30,18 @@
                 <input type="text" class="form-control" id="gst" name="gst" value="{{$data['user'] ? $data['user']->gst : ''}}">
             </div>
         </div>
+        <div class="form-group row">
+            <label for="phone_no" class="col-sm-2 col-form-label">Phone No</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="phone_no" name="phone_no" value="{{$data['user'] ? $data['user']->phone_no : ''}}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="address" class="col-sm-2 col-form-label">Address</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="address" name="address" value="{{$data['user'] ? $data['user']->address : ''}}">
+            </div>
+        </div>
 
         @if($data['user'] && $data['user']->logo)
         <div class="form-group row">
