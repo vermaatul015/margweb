@@ -42,7 +42,7 @@
                 <input type="text" class="form-control" id="address" name="address" value="{{$data['user'] ? $data['user']->address : ''}}">
             </div>
         </div>
-
+<!--
         @if($data['user'] && $data['user']->logo)
         <div class="form-group row">
             <label for="gst" class="col-sm-2 col-form-label">Logo </label>                   
@@ -92,6 +92,7 @@
         </div>
         
         @endif
+-->
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 

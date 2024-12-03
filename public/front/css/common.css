@@ -87,3 +87,18 @@
     border-style: groove;
     margin: 32px;
   }
+
+  @media print and (width: 21cm) and (height: 29.7cm) {
+    body {
+      visibility: hidden;
+    }
+    #invoice_print {
+      visibility: visible;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    @page {
+      margin: 3cm;
+    }
+  }

@@ -1,16 +1,15 @@
 $('#printInvoice').click(function(){
-    Popup($('.invoice')[0].outerHTML);
+    Popup($('#invoice_print').outerHTML);
     function Popup(data) 
     {
-        window.print();
+        window.print(data);
         return true;
     }
 });
 
-
 function demoFromHTML() {
     var pdf = new jsPDF('p', 'pt', 'letter');
-    pdf.addHTML($('.invoice')[0], function () {
+    pdf.addHTML($('#invoice_print'), function () {
         pdf.save($('.invoice-id').text()+'.pdf');
     });
 }
